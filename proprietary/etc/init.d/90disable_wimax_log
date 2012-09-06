@@ -1,0 +1,12 @@
+#!/system/bin/sh
+# remove wimax logs and 
+
+if [ -d /data/wimax/log ];
+then
+	rm -R /data/wimax/log;
+fi;
+
+if [ ! -e /data/wimax/log ];
+then
+	touch /data/wimax/log;
+fi;

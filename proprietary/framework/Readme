@@ -1,0 +1,11 @@
+wimax.jar >> cm에서 심을 읽을 때, 심의 종류를 제대로 읽지 못해서
+인증 처음에 wimax를 unlock할 수 없다.
+
+따라서 이부분은 (if-neq v7 로 기억하는데, 이 부분을 if-eqz v7로 바꿔서 해결했음.) smali파일을 수정했음.
+그리고 기타 다른 부분에서 bt,wifi에 대해 컨트롤 하는 부분이 있어서 이부분도 삭제함.
+(evo3d의 toatcfh버전 wimax-api.jar를 똑같이 열어서 디컴파일하고 비교함. wimax state tracker.smali에 있었던 것으로 기억.)
+
++ framework.jar파일속에 보면 wimax에 쓰여야할 smali파일들이 있는데 이 것들을 전부 풀어서
+wimax.jar속에 넣어줬음.  (htc폴더채로 들어가서 기타 필요없는 서비스들이 들어갔음. )
+
+그래서 순정파일에 비해 파일 크기가 큰 것임.
