@@ -294,11 +294,11 @@ on boot
 # Set this property so surfaceflinger is not started by system_init
     setprop system_init.startsurfaceflinger 0
 
-# Run sysinit
-    exec /system/bin/sysinit
-
+# start services
     class_start core
     class_start main
+# Run sysinit
+    start sysinit
 
 on nonencrypted
     class_start late_start
@@ -523,3 +523,6 @@ on property:service.adb.tcp.port=-1
     stop adbd
     start adbd
 
+service sysinit /system/bin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d
+    disabled
+    oneshot
