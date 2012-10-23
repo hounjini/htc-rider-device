@@ -278,4 +278,5 @@
         <item>12</item> <!-- TYPE_MOBILE_CBS -->
     </integer-array>
 
+    <bool name="config_bluetooth_adapter_quick_switch">false</bool>
 </resources>
