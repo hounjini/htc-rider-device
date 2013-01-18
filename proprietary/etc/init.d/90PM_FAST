@@ -1,3 +1,0 @@
-#!/system/bin/sh
-
-echo 1 > /sys/module/bcmdhd/parameters/wifi_pm

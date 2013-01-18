@@ -1,4 +1,0 @@
-#!/system/bin/sh
-
-rm /data/property/persist.ro.debuggable
-echo "1" > /data/property/persist.ro.debuggable
