@@ -1,122 +1,95 @@
-#lib/libaudcal_nel.so 
-#bin/apph 
-#bin/sound8x60
-
 bin/netsharing
-bin/snd3254
-bin/snd
-
-#bin/mpdecision
-#bin/thermald 
-#disabled for using gunine's kernel based mpdecision, thermald
-
-bin/btld
 bin/ipd
-bin/ip
-bin/charging 
-bin/htcbatt 
-bin/rild
-bin/htc_ebdlogd 
-bin/load-modem.sh 
-bin/logcat2 
+bin/charging
+bin/htcbatt
+bin/htc_ebdlogd
+bin/load-modem.sh
+bin/logcat2
 bin/netmgrd
-bin/rmt_storage 
-bin/qmuxd 
-xbin/wireless_modem 
-#bin/sound
+bin/rmt_storage
+bin/qmuxd
+xbin/wireless_modem
 bin/hdmid
+bin/rild
 
-lib/egl/libGLESv1_CM_adreno200.so 
-lib/egl/libEGL_adreno200.so 
-lib/egl/eglsubAndroid.so
-lib/egl/libGLESv2_adreno200.so 
-lib/egl/libq3dtools_adreno200.so 
-lib/libgsl.so
 
-lib/libC2D2.so
-lib/libOpenVG.so 
-lib/libsc-a2xx.so 
+# AUDIO
 lib/libhtc_acoustic.so
 lib/libaudioalsa.so
 #lib/libacdbloader.so
-lib/libacdbmapper.so 
-lib/libaudcal.so 
+lib/libacdbmapper.so
+lib/libaudcal.so
 
-lib/libdll.so 
-lib/libdiag.so 
-lib/libidl.so 
-lib/libdsi_netctrl.so 
-lib/libdsutils.so 
-lib/libnetmgr.so 
-lib/libqdp.so 
-lib/libqmi.so 
+# misc
+lib/libdll.so
+lib/libdiag.so
+lib/libidl.so
+lib/libdsi_netctrl.so
+lib/libdsutils.so
+lib/libnetmgr.so
+lib/libqdp.so
+lib/libqmi.so
 lib/libqmiservices.so
-lib/libhtc_ril.so 
-lib/libcamerapp.so 
-lib/libcameraface.so 
+lib/libhtc_ril.so
+
+
 #lib/libcamera_client.so
 #camera_client는 pyramid것을 쓴다.
+
 lib/liboemcamera.so
 lib/libOlaEngine.so
-lib/libposteffect.so 
-lib/libgemini.so 
-lib/libqc-opt.so 
-lib/libmmipl.so 
+lib/libposteffect.so
+lib/libgemini.so
+lib/libqc-opt.so
+lib/libmmipl.so
 lib/libmmjpeg.so
 lib/libmm-color-convertor.so
 lib/libv8.so
 lib/libiprouteutil.so
-
+# 얘도 pyramid것.
 #lib/hw/camera.default.so
+
 lib/hw/gps.rider.so
 #lib/hw/lights.msm8660.so
-######################################################
 lib/hw/sensors.rider.so
 lib/libmllite.so
 lib/libmpl.so
 lib/libmpl_jni.so
 lib/libmlplatform.so
-# 흠...
-######################################################
 
-#lib/libmm-omxcore.so
 lib/libOpenMAXAL.so
 
-#for binary hacking.
+# for binary hack
 #dependency.
 #libhardware.so
 #libnetutils.so
 #libdmtree.so
 #libcrypto.so
 
-#bin/wimaxDumpKmsg 
-#bin/wimaxDumpLogcat 
-#bin/setWiMAXPropDaemond 
-#bin/wimax_mtd 
-#bin/wimax_uart 
-#bin/sequansd 
-#bin/getWiMAXPropDaemond 
-#bin/wimaxDumpLastKmsg 
-#bin/wimaxDhcpRenew 
-#bin/wimaxDhcpRelease 
-#bin/wimaxAddRoute 
-#bin/wimaxConfigInterface 
+#bin/wimaxDumpKmsg
+#bin/wimaxDumpLogcat
+#bin/setWiMAXPropDaemond
+#bin/wimax_mtd
+#bin/wimax_uart
+#bin/sequansd
+#bin/getWiMAXPropDaemond
+#bin/wimaxDumpLastKmsg
+#bin/wimaxDhcpRenew
+#bin/wimaxDhcpRelease
+#bin/wimaxAddRoute
+#bin/wimaxConfigInterface
 #framework/framework2.jar
 #framework/wimax.jar
 #wimax.jar는 hacked!
-etc/wimax/sequansd/DefaultTree.xml 
-etc/wimax/sequansd/sequansd_app.xml 
+
+etc/wimax/sequansd/DefaultTree.xml
+etc/wimax/sequansd/sequansd_app.xml
 etc/wimax/dhcp/wimaxDhcp.conf
 lib/libril.so
 
 #lib/hw/audio.a2dp.default.so
 #lib/hw/audio.primary.default.so
 #lib/hw/audio_policy.default.so
-
-#lib/hw/copybit.msm8660.so
-#lib/hw/gralloc.default.so
-#lib/hw/gralloc.msm8660.so
-#lib/hw/hwcomposer.msm8660.so
 
 lib/libchromatix_imx105_default_video.so
 lib/libchromatix_imx105_preview.so
@@ -136,6 +109,8 @@ lib/libchromatix_s5k3h2yx_default_video.so
 lib/libchromatix_s5k3h2yx_hfr.so
 lib/libchromatix_s5k3h2yx_preview.so
 lib/libchromatix_s5k3h2yx_zsl.so
+lib/libcamerapp.so
+lib/libcameraface.so
 # voicemail
 etc/voicemail-conf.xml
 lib/egl/egl.cfg
@@ -149,52 +124,4 @@ lib/libscaladoapi.so
 lib/libscaladoutil.so
 lib/libscalado_htcalbum2.so
 lib/libloc_api-rpc.so
-
-#hounjini
-#QCOM 코덱을 쓰도록 하자!
-#lib/libOmxCore.so
-#lib/libOmxVdec.so
-#lib/libOmxVenc.so
-
-#lib/libstagefright.so
-#lib/libstagefrighthw.so
-#lib/libstagefright_amrnb_common.so
-#lib/libstagefright_avc_common.so
-#lib/libstagefright_enc_common.so
-#lib/libstagefright_foundation.so
-##lib/libstagefright_omx.so
-#lib/libstagefright_soft_aacdec.so
-#lib/libstagefright_soft_amrdec.so
-#lib/libstagefright_soft_g711dec.so
-#lib/libstagefright_soft_h264dec.so
-#lib/libstagefright_soft_mp3dec.so
-#lib/libstagefright_soft_mpeg4dec.so
-#lib/libstagefright_soft_vorbisdec.so
-#lib/libstagefright_soft_vpxdec.so
-#lib/libstagefright_yuv.so
-
-
-
-
-
-#lib/libcamera.so
-#lib/libaudcalwb.so 
-#######################
-#for libstagefright.so
-#lib/libmedia.so
-#lib/libchromium_net.so
-#lib/liboverlay.so
-#lib/libegsl.so
-#######################
-
-
-
-
-
-
-
-
-
-
-
 

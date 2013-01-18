@@ -11,6 +11,9 @@
 /dev/genlock            0666    root        root
 /dev/graphics/*         0660    root        graphics
 
+# block devices
+/dev/block/mmcblk0p21   0644    root        root
+
 # camera
 /dev/gemini0            0660    system      camera
 /dev/msm_camera/*       0660    system      camera
@@ -72,3 +75,9 @@
 /dev/oncrpc/*           0666    root        qcom_oncrpc
 /dev/msm_dsps           0660    system      system
 /dev/rtc0               0600    system      system
+
+# wifi
+/dev/rfkill             0660    root        wifi
+
+# simlock
+/dev/simlock            0660    radio       radio

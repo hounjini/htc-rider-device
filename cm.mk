@@ -14,8 +14,14 @@ $(call inherit-product, vendor/cm/config/themes_common.mk)
 
 include $(all-subdir-makefiles)
 
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_rider BUILD_ID=IML74K BUILD_FINGERPRINT="kt/htc_rider/rider:4.0.4/IML74K/130920.2:user/release-keys" PRIVATE_BUILD_DESC="2.08.651.2 CL130920 release-keys"
-
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_rider \
+	BUILD_ID="JZO54K" \
+	BUILD_FINGERPRINT="kt_kr/htc_rider/rider:4.1.2/JZO54K/383696.8:user/release-keys" \
+	PRIVATE_BUILD_DESC="3.09.1010.8 CL383696 release-keys" \
+	PLATFORM_VERSION="4.1.2" \
+#	BUILD_DISPLAY_ID="cm_rider-userdebug 4.0.4" \
+	
+	
 TARGET_BOOTANIMATION_NAME := vertical-540x960
 PRODUCT_NAME := cm_rider
 PRODUCT_DEVICE := rider

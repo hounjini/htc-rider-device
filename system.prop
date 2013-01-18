@@ -1,77 +1,48 @@
+# import from build.prop, rider
+ro.product.version=3.09.1010.8
+ro.product.model=X515e
+ro.product.brand=kt_kr
+ro.product.name=htc_rider
+ro.product.device=rider
+ro.product.board=rider
 #
-# system.prop for device
+# system.prop for pyramid
 #
 
-debug.fb.rgb565=0
-debug.sf.hw=1
-debug.composition.type=c2d
-#ro.sf.compbypass.enable=1
-#debug.enabletr=true
-dev.pm.dyn_samplingrate=1
-
+ro.sf.lcd_density=240
 
 # radio
 mobiledata.interfaces=rmnet0
-ro.telephony.ril.v3=signalstrength
-ro.telephony.default_network=0
-
-#Low Power Audio
-lpa.decode=true
-lpa.use-stagefright=true
-
-#cm qcom build lub
-com.qc.hardware=true
-com.qc.hdmi_out=true
-
-# board has 3D panel
-#persist.user.panel3D=1
-
 rild.libpath=/system/lib/libhtc_ril.so
+ro.telephony.ril.v3=datacallapn,signalstrength,skipNullAid,writeaidonly
 
-# +porting from pyramid by RIL_Jared.
-# Modify MMS APN retry timer from 5s to 2s.
-ro.gsm.2nd_data_retry_config = max_retries=3, 2000, 2000, 2000
-
-# pyramid RF team request
-ro.ril.gprsclass = 12
-ro.ril.hsdpa.category = 10
-ro.ril.hsupa.category = 6
-ro.ril.hsxpa = 3
-
-# Default network type.
-# 0 => WCDMA preferred.
-ro.telephony.default_network=0
-# -porting from pyramid
-
-wifi.interface=wlan0
-wifi.supplicant_scan_interval=30
-
-# density in DPI of the LCD of this board. This is used to scale the UI
-# appropriately. If this property is not defined, the default value is 160 dpi.
-ro.sf.lcd_density=240
-
-# For auto backlight default value
-settings.display.autobacklight=1
-
-# For the default value of agps
-ro.ril.def.agps.mode=2
-
-# The OpenGL ES API level that is natively supported by this device.
-# This is a 16.16 fixed point number
+# graphics
+com.qc.hardware=true
+# disabled for enabling HW decoding
+#debug.composition.type=dyn
+debug.enabletr=true
+debug.sf.hw=1
 ro.opengles.version=131072
 
-mobiledata.interfaces=rmnet0,wlan0,gprs,ppp0,wimax0
+# hw decoding enabler
+debug.mdpcomp.maxlayer = 0
+debug.composition.type = gpu
+dev.pm.gpu_samplingrate = 1
+debug.egl.hw= 1 
 
-# For emmc phone storage
-ro.phone_storage=0
 
-# Make rmt_storage start at init
-ro.emmc=1
+# qcom cpugovernor service
+dev.pm.dyn_samplingrate=1
 
-# System property for cabl
-ro.qualcomm.cabl=1
-
-ro.com.google.locationfeatures=1
+# wifi
+wifi.interface=wlan0
 
 # UMS
 persist.sys.usb.config=mass_storage,adb
+ro.vold.umsdirtyratio=50
+
+# Sleep
+ro.ril.disable.power.collapse=0
+pm.sleep_mode=1
+
+mobiledata.interfaces=rmnet0,wlan0,gprs,ppp0,wimax0

@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-
-#disabled by gunine
 PRODUCT_PROPERTY_OVERRIDES += \
       htc.audio.alt.enable=0 \
       htc.audio.hac.enable=0
