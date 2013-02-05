@@ -1,3 +1,6 @@
+#fake telephony sim serial number
+#telephony.fake.simSerial=
+
 # import from build.prop, rider
 ro.product.version=3.09.1010.8
 ro.product.model=X515e
@@ -6,7 +9,7 @@ ro.product.name=htc_rider
 ro.product.device=rider
 ro.product.board=rider
 #
-# system.prop for pyramid
+# system.prop for rider
 #
 
 ro.sf.lcd_density=240
@@ -18,17 +21,17 @@ ro.telephony.ril.v3=datacallapn,signalstrength,skipNullAid,writeaidonly
 
 # graphics
 com.qc.hardware=true
-# disabled for enabling HW decoding
-#debug.composition.type=dyn
+debug.composition.type=dyn
 debug.enabletr=true
 debug.sf.hw=1
 ro.opengles.version=131072
 
 # hw decoding enabler
-debug.mdpcomp.maxlayer = 0
-debug.composition.type = gpu
-dev.pm.gpu_samplingrate = 1
-debug.egl.hw= 1 
+# no need anymore
+#debug.mdpcomp.maxlayer = 0
+#debug.composition.type = gpu
+#dev.pm.gpu_samplingrate = 1
+#debug.egl.hw= 1 
 
 
 # qcom cpugovernor service
