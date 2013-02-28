@@ -72,11 +72,12 @@ PRODUCT_COPY_FILES += \
 
 ## ramdisk stuffs
 PRODUCT_COPY_FILES += \
-    device/htc/rider/ramdisk/init.rider.rc:root/init.rider.rc \
+    device/htc/rider/ramdisk/init.rider.bcm4329.rc:root/init.rider.rc \
     device/htc/rider/ramdisk/ueventd.rider.rc:root/ueventd.rider.rc \
     device/htc/rider/ramdisk/init.rider.usb.rc:root/init.rider.usb.rc \
     device/htc/rider/ramdisk/fstab.rider:root/fstab.rider \
     device/htc/rider/ramdisk/init.rc:root/init.rc \
+    device/htc/rider/ramdisk/init.cm.rc:root/init.cm.rc \
 #    device/htc/rider/ramdisk/init:root/init \
 
 # Permissions
@@ -97,31 +98,31 @@ PRODUCT_PACKAGES += \
 ## dsp Audio
 PRODUCT_COPY_FILES += \
     device/htc/rider/proprietary/etc/audio_effects.conf:system/etc/audio_effects.conf \
-    device/htc/rider/proprietary/etc//AIC3254_REG.csv:system/etc/AIC3254_REG.csv \
-    device/htc/rider/proprietary/etc//AIC3254_REG_DualMic.csv:system/etc/AIC3254_REG_DualMic.csv \
-    device/htc/rider/proprietary/etc//AdieHWCodec.csv:system/etc/AdieHWCodec.csv \
-    device/htc/rider/proprietary/etc//CodecDSPID.txt:system/etc/CodecDSPID.txt \
-    device/htc/rider/proprietary/etc//AudioBTID.csv:system/etc/AudioBTID.csv \
-    device/htc/rider/proprietary/etc//TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
-    device/htc/rider/proprietary/etc//soundimage/Sound_FM_HP.txt:system/etc/soundimage/Sound_FM_HP.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_FM_SPK.txt:system/etc/soundimage/Sound_FM_SPK.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Original.txt:system/etc/soundimage/Sound_Original.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Original_MFG.txt:system/etc/soundimage/Sound_Original_MFG.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Original_Recording.txt:system/etc/soundimage/Sound_Original_Recording.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Original_SPK.txt:system/etc/soundimage/Sound_Original_SPK.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Phone_Original.txt:system/etc/soundimage/Sound_Phone_Original.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Phone_Original_HP.txt:system/etc/soundimage/Sound_Phone_Original_HP.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Phone_Original_REC.txt:system/etc/soundimage/Sound_Phone_Original_REC.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Phone_Original_SPK.txt:system/etc/soundimage/Sound_Phone_Original_SPK.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Rec_Landscape.txt:system/etc/soundimage/Sound_Rec_Landscape.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Rec_mono.txt:system/etc/soundimage/Sound_Rec_mono.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Recording.txt:system/etc/soundimage/Sound_Recording.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Rec_Voice_record.txt:system/etc/soundimage/Sound_Rec_Voice_record.txt \
-    device/htc/rider/proprietary/etc//soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
-    device/htc/rider/proprietary/etc//soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
-    device/htc/rider/proprietary/etc//soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
-    device/htc/rider/proprietary/etc//soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg
+    device/htc/rider/proprietary/etc/AIC3254_REG.csv:system/etc/AIC3254_REG.csv \
+    device/htc/rider/proprietary/etc/AIC3254_REG_DualMic.csv:system/etc/AIC3254_REG_DualMic.csv \
+    device/htc/rider/proprietary/etc/AdieHWCodec.csv:system/etc/AdieHWCodec.csv \
+    device/htc/rider/proprietary/etc/CodecDSPID.txt:system/etc/CodecDSPID.txt \
+    device/htc/rider/proprietary/etc/AudioBTID.csv:system/etc/AudioBTID.csv \
+    device/htc/rider/proprietary/etc/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
+    device/htc/rider/proprietary/etc/soundimage/Sound_FM_HP.txt:system/etc/soundimage/Sound_FM_HP.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_FM_SPK.txt:system/etc/soundimage/Sound_FM_SPK.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Original.txt:system/etc/soundimage/Sound_Original.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Original_MFG.txt:system/etc/soundimage/Sound_Original_MFG.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Original_Recording.txt:system/etc/soundimage/Sound_Original_Recording.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Original_SPK.txt:system/etc/soundimage/Sound_Original_SPK.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Phone_Original.txt:system/etc/soundimage/Sound_Phone_Original.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Phone_Original_HP.txt:system/etc/soundimage/Sound_Phone_Original_HP.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Phone_Original_REC.txt:system/etc/soundimage/Sound_Phone_Original_REC.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Phone_Original_SPK.txt:system/etc/soundimage/Sound_Phone_Original_SPK.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Rec_Landscape.txt:system/etc/soundimage/Sound_Rec_Landscape.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Rec_mono.txt:system/etc/soundimage/Sound_Rec_mono.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Recording.txt:system/etc/soundimage/Sound_Recording.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Rec_Voice_record.txt:system/etc/soundimage/Sound_Rec_Voice_record.txt \
+    device/htc/rider/proprietary/etc/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
+    device/htc/rider/proprietary/etc/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
+    device/htc/rider/proprietary/etc/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
+    device/htc/rider/proprietary/etc/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg
     
     
 
@@ -136,7 +137,7 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/proprietary/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/htc/rider/proprietary/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl\
     device/htc/rider/proprietary/usr/keylayout/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
-	device/htc/rider/proprietary/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl\
+    device/htc/rider/proprietary/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl\
     device/htc/rider/proprietary/usr/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc
 
 ## Firmware
@@ -175,8 +176,8 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/proprietary/etc/vold.fstab:system/etc/vold.fstab \
     device/htc/rider/proprietary/etc/apns-conf.xml:system/etc/apns-conf.xml \
     device/htc/rider/proprietary/etc/init.d/91debuggable:system/etc/init.d/91debuggable \
-    device/htc/rider/proprietary/etc/init.d/91debuggable:system/etc/init.d/90PM_FAST \
-    device/htc/rider/proprietary/etc/init.d/91debuggable:system/etc/init.d/90tcp \
+#    device/htc/rider/proprietary/etc/init.d/91debuggable:system/etc/init.d/90PM_FAST \
+#    device/htc/rider/proprietary/etc/init.d/91debuggable:system/etc/init.d/90tcp \
 
 ## kernal and modules
 #ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -202,7 +203,11 @@ PRODUCT_COPY_FILES += \
 
 # WIFI
 # BCM4329
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcm4329/firmware/android.mk)
+# $(call inherit-product, hardware/broadcom/wlan/bcm4329/firmware/Android.mk)
+PRODUCT_COPY_FILES += \
+    hardware/broadcom/wlan/bcm4329/firmware/fw_bcm4329.bin:system/vendor/firmware/fw_bcm4329.bin \
+    hardware/broadcom/wlan/bcm4329/firmware/fw_bcm4329_apsta.bin:system/vendor/firmware/fw_bcm4329_apsta.bin \
+
 # BCMDHD
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 

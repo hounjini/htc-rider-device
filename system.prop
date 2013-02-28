@@ -1,3 +1,29 @@
+##############  FAKE TELEPHONY INFORMATION ###############
+
+#phoneNumber
+telephony.fake.phoneNumber=+8210
+#IMSI
+telephony.fake.subscriberId=
+
+#network MCC+MNC (Number, 45008 for KT)
+telephony.fake.networkOperatorN=
+#network ISO
+telephony.fake.networkISO=kr
+#network operator name (Alphabet, olleh for KT)
+telephony.fake.networkOperatorA=
+
+#simcard MCC+MNC (Number, 45008 for KT)
+telephony.fake.SimOperator=
+#simcard SPN (Alphabet, olleh for KT)
+telephony.fake.simSPN=olleh
+#simcard ISO (provider country code)
+telephony.fake.simISO=kr
+#simcard serial number (Number, 19 digits)
+telephony.fake.simSerial=
+
+##############  FAKE TELEPHONY INFORMATION ###############
+
+
 # import from build.prop, rider
 ro.product.version=3.09.1010.8
 ro.product.model=X515e
@@ -6,7 +32,7 @@ ro.product.name=htc_rider
 ro.product.device=rider
 ro.product.board=rider
 #
-# system.prop for pyramid
+# system.prop for rider
 #
 
 ro.sf.lcd_density=240
@@ -18,18 +44,13 @@ ro.telephony.ril.v3=datacallapn,signalstrength,skipNullAid,writeaidonly
 
 # graphics
 com.qc.hardware=true
-# disabled for enabling HW decoding
-#debug.composition.type=dyn
+debug.composition.type=dyn
 debug.enabletr=true
 debug.sf.hw=1
 ro.opengles.version=131072
-
-# hw decoding enabler
-debug.mdpcomp.maxlayer = 0
-debug.composition.type = gpu
-dev.pm.gpu_samplingrate = 1
-debug.egl.hw= 1 
-
+debug.egl.hw=1
+debug.mdpcomp.maxlayer=0
+debug.mdpcomp.logs=0
 
 # qcom cpugovernor service
 dev.pm.dyn_samplingrate=1

@@ -24,7 +24,7 @@
 <!ELEMENT EncoderProfile (Video, Audio)>
 <!ATTLIST EncoderProfile quality (high|low) #REQUIRED>
 <!ATTLIST EncoderProfile fileFormat (mp4|3gp) #REQUIRED>
-<!ATTLIST EncoderProfile duration (30|60) #REQUIRED>
+<!ATTLIST EncoderProfile duration (15|30|60) #REQUIRED>
 <!ATTLIST EncoderProfile cameraId (0|1) #REQUIRED>
 <!ELEMENT Video EMPTY>
 <!ATTLIST Video codec (h264|h263|m4v) #REQUIRED>
@@ -90,15 +90,15 @@
     <!-- Each camcorder profile defines a set of predefined configuration parameters -->
     <CamcorderProfiles cameraId="0">
 
-    	<EncoderProfile quality="low" fileFormat="mp4" duration="15">
+	    	<EncoderProfile quality="low" fileFormat="mp4" duration="15">
 		<Video codec="h264"
                        bitRate="192000"
-        	       width="176"
-        	       height="144"
-        	       frameRate="31" />
+                       width="176"
+                       height="144"
+                       frameRate="31" />
 
 	        <Audio codec="amrnb"
-             	       bitRate="12200"
+                       bitRate="12200"
                        sampleRate="8000"
                        channels="1" />
         </EncoderProfile>
@@ -154,7 +154,7 @@
 
         <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                   bitRate="12000000"
+                   bitRate="14000000"
                    width="1280"
                    height="720"
                    frameRate="31" />
@@ -250,30 +250,30 @@
 
     <CamcorderProfiles cameraId="1">
 
-    	<EncoderProfile quality="low" fileFormat="mp4" duration="15">
-		<Video codec="h264"
-                       bitRate="192000"
-        	       width="176"
-        	       height="144"
-        	       frameRate="31" />
+        <EncoderProfile quality="low" fileFormat="mp4" duration="15">
+            <Video codec="h264"
+                   bitRate="192000"
+                   width="176"
+                   height="144"
+                   frameRate="31" />
 
 	        <Audio codec="amrnb"
-             	       bitRate="12200"
-                       sampleRate="8000"
-                       channels="1" />
+                   bitRate="12200"
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="high" fileFormat="mp4" duration="15">
                 <Video codec="h264"
-                       bitRate="2000000"
-                       width="640"
-                       height="480"
-                       frameRate="31" />
+                   bitRate="2000000"
+                   width="640"
+                   height="480"
+                   frameRate="31" />
 
                 <Audio codec="aac"
-                       bitRate="156000"
-                       sampleRate="48000"
-                       channels="1" />
+                   bitRate="156000"
+                   sampleRate="48000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="qvga" fileFormat="3gp" duration="60">
@@ -319,7 +319,7 @@
 
         <Camera previewFrameRate="0" />
 
-    </CamcorderProfiles>
+        </CamcorderProfiles>
 
     <EncoderOutputFileFormat name="3gp" />
     <EncoderOutputFileFormat name="mp4" />
@@ -395,5 +395,3 @@
     -->
     <ExportVideoProfile name="m4v" profile= "16" level="1"/>
 </MediaSettings>
-
-
