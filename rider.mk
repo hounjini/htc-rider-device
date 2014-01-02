@@ -14,6 +14,23 @@
 # limitations under the License.
 #
 
+# common msm8660 configs
+$(call inherit-product, device/htc/msm8660-common/msm8660.mk)
+
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+DEVICE_PACKAGE_OVERLAYS += device/htc/rider/overlay
+
+
+# Bluetooth firmware
+$(call inherit-product, device/htc/msm8660-common/bcm_hcd.mk)
+
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
+
+# camera apk from Pyramid CM11. I dont want to edit Camera2 source file. it is really hasitating.
+PRODUCT_COPY_FILES += \
+    device/htc/rider/proprietary/app/Camera2.apk.pyramid:system/app/Camera2.apk \
 
 # wimax
 PRODUCT_COPY_FILES += \
@@ -35,9 +52,10 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/proprietary/bin/getWiMAXPropDaemond:system/bin/getWiMAXPropDaemond \
     device/htc/rider/proprietary/bin/setWiMAXPropDaemond:system/bin/setWiMAXPropDaemond \
     device/htc/rider/proprietary/bin/sequansd:system/bin/sequansd \
-    device/htc/rider/proprietary/framework/wimax.jar:system/framework/wimax.jar \
+    device/htc/rider/proprietary/framework/kitkat.wimax.jar:system/framework/wimax.jar \
     device/htc/rider/proprietary/etc/init.d/90disable_wimax_log:system/etc/init.d/90disable_wimax_log \
     device/htc/rider/proprietary/etc/permissions/android.hardware.wimax.xml:system/etc/permissions/android.hardware.wimax.xml \
+#    device/htc/rider/proprietary/framework/wimax.jar:system/framework/wimax.jar \
 #    device/htc/rider/proprietary/framework/framework2.jar:system/framework/framework2.jar \
 #    device/htc/rider/proprietary/app/CMWimaxSettings.apk:system/app/CMWimaxSettings.apk \
 #    device/htc/rider/proprietary/lib/libwimaxjni.s_:system/lib/libwimaxjni.so \
@@ -57,11 +75,6 @@ PRODUCT_PACKAGES += CMWimaxSettings\
 #LIGHT
 PRODUCT_PACKAGES += lights.rider \
 
-# Camera
-PRODUCT_COPY_FILES += \
-    device/htc/rider/proprietary/lib/libcamera_client.so.pyramid:system/lib/libcamera_client.so \
-    device/htc/rider/proprietary/lib/hw/camera.default.so.pyramid:system/lib/hw/camera.default.so \
-
 PRODUCT_PACKAGES += \
 	camera.msm8660 \
 	libsurfaceflinger_client \
@@ -73,11 +86,12 @@ PRODUCT_COPY_FILES += \
 ## ramdisk stuffs
 PRODUCT_COPY_FILES += \
     device/htc/rider/ramdisk/init.rider.rc:root/init.rider.rc \
+    device/htc/rider/ramdisk/init.environ.rc:root/init.environ.rc \
     device/htc/rider/ramdisk/ueventd.rider.rc:root/ueventd.rider.rc \
     device/htc/rider/ramdisk/init.rider.usb.rc:root/init.rider.usb.rc \
     device/htc/rider/ramdisk/fstab.rider:root/fstab.rider \
-    device/htc/rider/ramdisk/init.rc:root/init.rc \
-#    device/htc/rider/ramdisk/init:root/init \
+#    device/htc/rider/ramdisk/adbd:root/sbin/adbd \			#this is adbd from ics for dev.
+
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -97,31 +111,31 @@ PRODUCT_PACKAGES += \
 ## dsp Audio
 PRODUCT_COPY_FILES += \
     device/htc/rider/proprietary/etc/audio_effects.conf:system/etc/audio_effects.conf \
-    device/htc/rider/proprietary/etc//AIC3254_REG.csv:system/etc/AIC3254_REG.csv \
-    device/htc/rider/proprietary/etc//AIC3254_REG_DualMic.csv:system/etc/AIC3254_REG_DualMic.csv \
-    device/htc/rider/proprietary/etc//AdieHWCodec.csv:system/etc/AdieHWCodec.csv \
-    device/htc/rider/proprietary/etc//CodecDSPID.txt:system/etc/CodecDSPID.txt \
-    device/htc/rider/proprietary/etc//AudioBTID.csv:system/etc/AudioBTID.csv \
-    device/htc/rider/proprietary/etc//TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
-    device/htc/rider/proprietary/etc//soundimage/Sound_FM_HP.txt:system/etc/soundimage/Sound_FM_HP.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_FM_SPK.txt:system/etc/soundimage/Sound_FM_SPK.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Original.txt:system/etc/soundimage/Sound_Original.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Original_MFG.txt:system/etc/soundimage/Sound_Original_MFG.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Original_Recording.txt:system/etc/soundimage/Sound_Original_Recording.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Original_SPK.txt:system/etc/soundimage/Sound_Original_SPK.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Phone_Original.txt:system/etc/soundimage/Sound_Phone_Original.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Phone_Original_HP.txt:system/etc/soundimage/Sound_Phone_Original_HP.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Phone_Original_REC.txt:system/etc/soundimage/Sound_Phone_Original_REC.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Phone_Original_SPK.txt:system/etc/soundimage/Sound_Phone_Original_SPK.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Rec_Landscape.txt:system/etc/soundimage/Sound_Rec_Landscape.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Rec_mono.txt:system/etc/soundimage/Sound_Rec_mono.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Recording.txt:system/etc/soundimage/Sound_Recording.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt \
-    device/htc/rider/proprietary/etc//soundimage/Sound_Rec_Voice_record.txt:system/etc/soundimage/Sound_Rec_Voice_record.txt \
-    device/htc/rider/proprietary/etc//soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
-    device/htc/rider/proprietary/etc//soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
-    device/htc/rider/proprietary/etc//soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
-    device/htc/rider/proprietary/etc//soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg
+    device/htc/rider/proprietary/etc/AIC3254_REG.csv:system/etc/AIC3254_REG.csv \
+    device/htc/rider/proprietary/etc/AIC3254_REG_DualMic.csv:system/etc/AIC3254_REG_DualMic.csv \
+    device/htc/rider/proprietary/etc/AdieHWCodec.csv:system/etc/AdieHWCodec.csv \
+    device/htc/rider/proprietary/etc/CodecDSPID.txt:system/etc/CodecDSPID.txt \
+    device/htc/rider/proprietary/etc/AudioBTID.csv:system/etc/AudioBTID.csv \
+    device/htc/rider/proprietary/etc/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
+    device/htc/rider/proprietary/etc/soundimage/Sound_FM_HP.txt:system/etc/soundimage/Sound_FM_HP.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_FM_SPK.txt:system/etc/soundimage/Sound_FM_SPK.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Original.txt:system/etc/soundimage/Sound_Original.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Original_MFG.txt:system/etc/soundimage/Sound_Original_MFG.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Original_Recording.txt:system/etc/soundimage/Sound_Original_Recording.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Original_SPK.txt:system/etc/soundimage/Sound_Original_SPK.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Phone_Original.txt:system/etc/soundimage/Sound_Phone_Original.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Phone_Original_HP.txt:system/etc/soundimage/Sound_Phone_Original_HP.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Phone_Original_REC.txt:system/etc/soundimage/Sound_Phone_Original_REC.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Phone_Original_SPK.txt:system/etc/soundimage/Sound_Phone_Original_SPK.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Rec_Landscape.txt:system/etc/soundimage/Sound_Rec_Landscape.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Rec_mono.txt:system/etc/soundimage/Sound_Rec_mono.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Recording.txt:system/etc/soundimage/Sound_Recording.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt \
+    device/htc/rider/proprietary/etc/soundimage/Sound_Rec_Voice_record.txt:system/etc/soundimage/Sound_Rec_Voice_record.txt \
+    device/htc/rider/proprietary/etc/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
+    device/htc/rider/proprietary/etc/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
+    device/htc/rider/proprietary/etc/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
+    device/htc/rider/proprietary/etc/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg
     
     
 
@@ -136,78 +150,29 @@ PRODUCT_COPY_FILES += \
     device/htc/rider/proprietary/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/htc/rider/proprietary/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl\
     device/htc/rider/proprietary/usr/keylayout/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
-	device/htc/rider/proprietary/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl\
+    device/htc/rider/proprietary/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl\
     device/htc/rider/proprietary/usr/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc
+    
+    #have to modifi generic.kl
 
 ## Firmware
 PRODUCT_COPY_FILES += \
-    device/htc/rider/proprietary/etc/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
     device/htc/rider/proprietary/etc/firmware/default_bak.acdb:system/etc/firmware/default_bak.acdb \
     device/htc/rider/proprietary/etc/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw \
-    device/htc/rider/proprietary/etc/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
-    device/htc/rider/proprietary/etc/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
-    device/htc/rider/proprietary/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
-    device/htc/rider/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-    device/htc/rider/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
     device/htc/rider/proprietary/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
     device/htc/rider/proprietary/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
-
-# ADRENO 220
-PRODUCT_COPY_FILES += \
-    device/htc/rider/proprietary/lib/libC2D2.so:system/lib/libC2D2.so \
-    device/htc/rider/proprietary/lib/libOpenVG.so:system/lib/libOpenVG.so \
-    device/htc/rider/proprietary/lib/libc2d2_z180.so:system/lib/libc2d2_z180.so \
-    device/htc/rider/proprietary/lib/libgsl.so:system/lib/libgsl.so \
-    device/htc/rider/proprietary/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
-    device/htc/rider/proprietary/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
-    device/htc/rider/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
-    device/htc/rider/proprietary/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
-    device/htc/rider/proprietary/lib/egl/libGLESv2S3D_adreno200.so:system/lib/egl/libGLESv2S3D_adreno200.so \
-    device/htc/rider/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
-    device/htc/rider/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
-
-# QC thermald config
-# PRODUCT_COPY_FILES += device/htc/rider/proprietary/etc/thermald.conf:system/etc/thermald.conf
-# obsolated because kernel (gunine's) has own thermal caring system.
+#    device/htc/rider/proprietary/etc/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
+#    device/htc/rider/proprietary/etc/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
+#    device/htc/rider/proprietary/etc/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
+#    device/htc/rider/proprietary/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+#    device/htc/rider/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+#    device/htc/rider/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
+# 	USE FIRMWARE AND KERNEL VIDC from RIDER htc kernel. firmware has codec license, vidc with htc kernel works with my board-rider.h memory mapping.
 
 ## misc
 PRODUCT_COPY_FILES += \
     device/htc/rider/proprietary/etc/vold.fstab:system/etc/vold.fstab \
     device/htc/rider/proprietary/etc/apns-conf.xml:system/etc/apns-conf.xml \
-    device/htc/rider/proprietary/etc/init.d/91debuggable:system/etc/init.d/91debuggable \
-    device/htc/rider/proprietary/etc/init.d/91debuggable:system/etc/init.d/90PM_FAST \
-    device/htc/rider/proprietary/etc/init.d/91debuggable:system/etc/init.d/90tcp \
-
-## kernal and modules
-#ifeq ($(TARGET_PREBUILT_KERNEL),)
-#LOCAL_KERNEL := device/htc/rider/ramdisk/kernAl
-#else
-#LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-#endif
-
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_KERNEL):kernel
-
-#PRODUCT_COPY_FILES += \
-#    device/htc/rider/proprietary/lib/modules/sequans_sdio.ko:system/lib/modules/sequans_sdio.ko \
-#    device/htc/rider/proprietary/lib/modules/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
-#    device/htc/rider/proprietary/lib/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko \
-##    device/htc/rider/proprietary/lib/modules/cpaccess.ko:system/lib/modules/cpaccess.ko \
-##    device/htc/rider/proprietary/lib/modules/msm-buspm-dev.ko:system/lib/modules/msm-buspm-dev.ko \
-##    device/htc/rider/proprietary/lib/modules/dma_test.ko:system/lib/modules/dma_test.ko \
-##    device/htc/rider/proprietary/lib/modules/bluetooth-power.ko:system/lib/modules/bluetooth-power.ko \
-##    device/htc/rider/proprietary/lib/modules/spidev.ko:system/lib/modules/spidev.ko \
-##    device/htc/rider/proprietary/lib/modules/dma_test.ko:system/lib/modules/dma_test.ko \
-
-
-# WIFI
-# BCM4329
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcm4329/firmware/android.mk)
-# BCMDHD
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
-
-
-
 
 ## Hacked binary for shooter build
 PRODUCT_COPY_FILES += \
@@ -216,21 +181,13 @@ PRODUCT_COPY_FILES += \
 # Media profile
 PRODUCT_COPY_FILES += \
      device/htc/rider/proprietary/etc/media_profiles.xml:system/etc/media_profiles.xml \
-     device/htc/rider/proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml
+     device/htc/rider/proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml \
 
-PRODUCT_COPY_FILES += \
-	device/htc/rider/proprietary/lib/libacdbloader.so:system/lib/libacdbloader.so
 
-## overlays
-DEVICE_PACKAGE_OVERLAYS += device/htc/rider/overlay
 
 ## we have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
+#PRODUCT_TAGS += dalvik.gc.type-precise
 
-## device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-PRODUCT_LOCALES += en_US ko_KR
 
 # Set build date
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -240,15 +197,15 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.secure=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.setupwizard.enable_bypass=1 \
-	ro.com.google.locationfeatures=1 \
-    ro.telephony.default_network=0
+    ro.setupwizard.enable_bypass=1 \
+    dalvik.vm.lockprof.threshold=500 \
+    ro.com.google.locationfeatures=1 \
+    dalvik.vm.dexopt-flags=m=y
 
 
 
 # proprietary vendor setup
 $(call inherit-product-if-exists, vendor/htc/rider/rider-vendor.mk)
-#$(call inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
 
 ## media profiles and capabilities spec
 $(call inherit-product, device/htc/rider/media_a1026.mk)
@@ -257,9 +214,6 @@ $(call inherit-product, device/htc/rider/media_htcaudio.mk)
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
-$(call inherit-product, build/target/product/full_base_telephony.mk)
-
-# common msm8660 configs
-$(call inherit-product, device/htc/msm8660-common/msm8660.mk)
-
-$(call inherit-product, build/target/product/languages_full.mk)
+# Device ID
+PRODUCT_NAME := full_rider
+PRODUCT_DEVICE := rider
